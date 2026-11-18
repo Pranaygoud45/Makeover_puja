@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: #302522;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] bg-white text-espresso;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-normal;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  ::selection {
+    @apply bg-rose/20 text-espresso;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-5 py-16 md:px-8 md:py-20 lg:px-12 lg:py-26;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-8xl px-5 md:px-8 lg:px-12;
+  }
+
+  .section-label {
+    @apply text-xs font-medium uppercase tracking-[0.25em] text-rose mb-4 font-body;
+  }
+
+  .section-title {
+    @apply font-display text-display-sm md:text-display-md lg:text-display-lg text-espresso;
+  }
+
+  .section-subtitle {
+    @apply mt-4 max-w-2xl text-base md:text-lg text-taupe leading-relaxed font-body;
+  }
+
+  .editorial-image {
+    @apply w-full h-full object-cover;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-espresso text-white
+           px-8 py-3.5 text-sm font-medium tracking-wide uppercase
+           transition-all duration-400 hover:bg-espresso-light
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-espresso focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-espresso text-espresso
+           px-8 py-3.5 text-sm font-medium tracking-wide uppercase
+           transition-all duration-400 hover:bg-espresso hover:text-white
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-espresso focus-visible:ring-offset-2;
+  }
+
+  .btn-rose {
+    @apply inline-flex items-center justify-center gap-2 bg-rose text-white
+           px-8 py-3.5 text-sm font-medium tracking-wide uppercase
+           transition-all duration-400 hover:bg-rose-dark
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2;
+  }
+
+  .divider {
+    @apply w-12 h-px bg-rose;
+  }
+
+  .divider-wide {
+    @apply w-full h-px bg-champagne;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-ivory;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-taupe/40 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-taupe/60;
+}
